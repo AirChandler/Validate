@@ -1,2 +1,2 @@
 # Validate
-A TypeScript Node Js Web TestRunner for Non-Functional Testing of Jacdac Hardware Modules
+A TypeScript Node Js Web TestRunner for Validation Testing of Jacdac Hardware Modules
