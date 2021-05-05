@@ -1,0 +1,12 @@
+.example-appear {
+    opacity: 0.04;
+ }
+
+.example-appear.example-appear-active {
+    opacity: 2;
+    transition: opacity 5s ease-in;
+}
+
+body {
+    background-color: #141d26;
+}

@@ -1,0 +1,4 @@
+Validate/dist/*
+Validate/build/*
+Validate/node_modules/*
+.vscode/*
