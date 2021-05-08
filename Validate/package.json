@@ -1,5 +1,5 @@
 {
-  "name": "Validate",
+  "name": "validate",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -11,8 +11,8 @@
     "init": "npx tsc --init"
   },
   "dependencies": {
+    "@fower/react": "^1.7.0",
     "@types/chart.js": "^2.9.32",
-    "@types/express": "^4.17.11",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.0.1",
     "@types/react": "^17.0.4",
@@ -21,8 +21,8 @@
     "@types/react-router-dom": "^5.1.7",
     "chart.js": "^3.2.0",
     "copyfiles": "^2.4.1",
-    "express": "^4.17.1",
     "install": "^0.13.0",
+    "jacdac-ts": "^1.13.3",
     "npm": "^7.11.1",
     "react": "^17.0.2",
     "react-addons-css-transition-group": "^15.6.2",
