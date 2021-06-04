@@ -2,62 +2,64 @@
     box-sizing: border-box;
 }
 
-#msPic{
-    position:fixed;
-    width: 130px;
-    height: 30px;
-    top: 3%;
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #243447;
+    border-radius: 10px; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #141d26;
+    border-radius: 10px; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #141d26; 
+  }
+
+#menuList:hover{
+    background-color:#141d26;
+    border-radius:100%;
 }
 
-#settings{
-    position:fixed;
-    width: 40px;
-    height: 40px;
-    top: 3%;
-    right: 3%;
+#connector:hover{
+    background-color:#141d26;
+    border-radius:100%;
 }
 
-#titleHome{
-    position:fixed;
-    left: 40%;
-    top: 2%;
+#showMenu{
+    visibility: visible;
 }
-
-#titleText{
-    position:fixed;
-    left:47%;
-    top:0.5%;
-    color:white;
+#hideMenu{
+    visibility: hidden;
 }
 
 .banner{
     background-color: #243447;
-    position:fixed;
     height: 80px;
     top: 0px;
     left: 0px;
     right: 0px;
 }
 
-#graph{
-    background-color: #243447;
-    position:fixed;
-    height: 400px;
-    width: 640px;
-    top: 100px;
-    left: 2%;
-    right: 0px;
+.lookup{
+    left: -50px;
 }
 
-#graph2{
-    background-color: #243447;
-    position:fixed;
-    height: 400px;
-    width: 640px;
-    top: 100px;
-    right: 2%;
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
 }
 
+
+/*POSITIONING*/
 /* Clears, forcing a new row */
 .row::after {
     content: "";
