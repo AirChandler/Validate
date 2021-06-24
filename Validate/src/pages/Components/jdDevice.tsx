@@ -7,8 +7,10 @@ import { styled } from "@fower/styled";
 import {addAtom} from "@fower/core"
 import listDevices from "./jdList";
 import {Device} from "./jdList"
+import {Home} from "../Home.js"
 
 interface selectDevice{
+    onTest: (device: string, id: string, desc: string)=>void;
     selected:boolean;
     onSelected: (name: string) => void;
 }
@@ -21,6 +23,7 @@ export const JdDevice:React.FunctionComponent<Device & selectDevice> = ({
     id,
     name,
     description,
+    onTest,
     selected,
     onSelected,
 }) => (
@@ -70,6 +73,7 @@ export const JdDevice:React.FunctionComponent<Device & selectDevice> = ({
                     bg="darkgreen"
                     textAlign="center"
                     w="100"
+                    onClick={() => onTest(name, id, description)}
                 >
                     Test
                 </Box>

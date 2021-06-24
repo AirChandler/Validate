@@ -8,11 +8,17 @@ import JdSearch from './Components/jdSearch';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { SetupBus} from './Components/jdComms'
 import * as jacdac from 'jacdac-ts'
+import { runInThisContext } from 'node:vm';
+import JdTest from './Components/jdTest'
 
 interface MyProps{ };
 interface MyState{ 
   showMenu: boolean; 
   showConnector: boolean;
+  showTest: boolean;
+  testingDevice: string;
+  deviceId: string;
+  deviceDesc: string;
 };
 export class Home extends React.Component<MyProps, MyState> {
 
@@ -24,7 +30,11 @@ export class Home extends React.Component<MyProps, MyState> {
       super(props);
       this.state = {
         showMenu: false,
-        showConnector: false
+        showConnector: false,
+        showTest: false,
+        testingDevice: "",
+        deviceId: "",
+        deviceDesc: ""
       }
       this.menuShowToggle = this.menuShowToggle.bind(this);
     }
@@ -35,6 +45,13 @@ export class Home extends React.Component<MyProps, MyState> {
 
     menuShowToggle = () => {
       this.setState({showMenu: !this.state.showMenu})
+    }
+
+    testShowToggle = (device: string, id: string, desc: string) => {
+      this.setState({showTest: !this.state.showTest})
+      this.setState({testingDevice: device})
+      this.setState({deviceId: id})
+      this.setState({deviceDesc: desc})
     }
 
     setupComms = () => {
@@ -67,18 +84,6 @@ export class Home extends React.Component<MyProps, MyState> {
               onClick={this.setupComms}
               cursorPointer
             />
-              {this.state.showConnector ?
-                <Box
-                as="text"
-                white
-                text4XL
-                >
-                  Hello
-                  {this.jdComms.getDevices().forEach(device =>
-                    <p>Hi</p>
-                  )}  
-                </Box>
-              : null}
             <Box as="img"
               src="css/Assets/wrench.png" 
               alt="Validate"
@@ -102,11 +107,22 @@ export class Home extends React.Component<MyProps, MyState> {
             />
 
           </Box>
+          <Box>
+          { this.state.showTest ? (
+            <JdTest 
+            name={this.state.testingDevice}
+            id={this.state.deviceId}
+            desc={this.state.deviceDesc}
+            />
+          ) : null}
+          </Box>
+          <Box>
             { this.state.showMenu ? (
               <div id='JdSearch'>
-                <JdSearch />
+                <JdSearch test={this.testShowToggle}/>
               </div>
             ) : null}
+          </Box>
         </div>
       );
     }

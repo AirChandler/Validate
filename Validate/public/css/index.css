@@ -10,3 +10,10 @@
 body {
     background-color: #141d26;
 }
+
+#myChart{
+    position: relative;
+    top: 80%;
+    width: 100px;
+    height: 100px;
+}

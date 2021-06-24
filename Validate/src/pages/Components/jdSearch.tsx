@@ -6,12 +6,14 @@ import { Box, Image } from '@fower/react'
 import { styled } from "@fower/styled";
 import listDevices from "./jdList";
 import {JdDevice} from "./jdDevice"
+import {Home} from "../Home.js"
 
 const Input = styled("input");
 interface MyProps{ 
-    remove?: () => void
+    remove?: () => void,
+    test: (device: string, id: string, desc: string) => void
 };
-export default function JdSearch(props: MyProps){
+export default function jdSearch(props: MyProps){
     //Inefficient- recreates array all time- useMemo instead
     //of effect
     const {
@@ -69,6 +71,7 @@ export default function JdSearch(props: MyProps){
                         <JdDevice 
                             key={device.id} 
                             {...device}
+                            onTest={props.test}
                             selected={selected.has(device.name)}
                             onSelected={selectDevice}
                         />
